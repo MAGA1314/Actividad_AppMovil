@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Actividad_AppMovil</string>
+    <string name="nombresa">Nombres Aleatorios</string>
+    <string name="nombre1">Ingrese El Primer Nombre</string>
+    <string name="nombre2">Ingrese El Segundo Nombre</string>
+    <string name="nombre3">Ingrese El Tercer Nombre</string>
+    <string name="ingresenombre">Ingrese El Nombre</string>
+    <string name="continuar">Continuar</string>
+    <string name="volver">Volver</string>
+</resources>
