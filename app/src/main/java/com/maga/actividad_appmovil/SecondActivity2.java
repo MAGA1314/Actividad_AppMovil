@@ -46,6 +46,7 @@ public class SecondActivity2 extends AppCompatActivity {
         // Seleccionar aleatoriamente un nombre de la lista
         Random random = new Random();
         String nombreAleatorio = listaNombres.get(random.nextInt(listaNombres.size()));
+
         EditText editTextResultado = findViewById(R.id.etnombrealeatorio);
         editTextResultado.setText(nombreAleatorio);
 
