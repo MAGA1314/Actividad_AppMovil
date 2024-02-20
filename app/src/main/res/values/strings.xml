@@ -7,4 +7,5 @@
     <string name="ingresenombre">Ingrese El Nombre</string>
     <string name="continuar">Continuar</string>
     <string name="volver">Volver</string>
+    <string name="repetiraleatorio">Repetir Aleatorio</string>
 </resources>
