@@ -19,6 +19,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Recuperar el mensaje extra del Intent
+        Intent intent = getIntent();
+        if (intent != null) {
+            String mensaje = intent.getStringExtra("mensaje");
+
+            // Mostrar el mensaje en un TextView u otro componente según tu diseño
+            TextView textView = findViewById(R.id.TVtexto);
+            textView.setText(mensaje);
+        }
         Button btnEnviar = findViewById(R.id.btncontinuar);
         btnEnviar.setOnClickListener(new View.OnClickListener() {
 

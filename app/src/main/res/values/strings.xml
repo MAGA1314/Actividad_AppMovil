@@ -8,4 +8,6 @@
     <string name="continuar">Continuar</string>
     <string name="volver">Volver</string>
     <string name="repetiraleatorio">Repetir Aleatorio</string>
+    <string name="nombrealeatorio">Nombre Aleatorio</string>
+    <string name="nuevoaleatorio">¡Nuevo Aleatorio!</string>
 </resources>

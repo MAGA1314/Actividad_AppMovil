@@ -50,6 +50,27 @@ public class SecondActivity2 extends AppCompatActivity {
         EditText editTextResultado = findViewById(R.id.etnombrealeatorio);
         editTextResultado.setText(nombreAleatorio);
 
+        // Texto de los botones
+        /* El boton Volver envia un mensaje a la pantalla principal que imprime: "¡Volvió a la primera pantalla!"*/
+        /* El boton Repetir aleatorio Repetira la accion de escoger un nombre aleatorio y aparte mostrara un mensaje que dira: "Nuevo Aleatorio"*/
+
+        // Configurar la accion del boton "repetir aleatorio"
+        // Configurar la accion del boton "repetir aleatorio"
+        Button btnRepetirAleatorio = findViewById(R.id.btnrepetir);
+        btnRepetirAleatorio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Seleccionar aleatoriamente un nombre de la lista
+                String nombreAleatorio = listaNombres.get(random.nextInt(listaNombres.size()));
+
+                // Mostrar el nombre aleatorio en el EditText
+                editTextResultado.setText(nombreAleatorio);
+
+                // Mostrar el mensaje "Nuevo Aleatorio" en un TextView
+                TextView textViewMensaje = findViewById(R.id.TValeatorionuevo);
+                textViewMensaje.setText("¡Nuevo Aleatorio!");
+            }
+        });
         // Configurar la acción del botón "Volver"
         Button btnVolver = findViewById(R.id.btnvol);
         btnVolver.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +81,8 @@ public class SecondActivity2 extends AppCompatActivity {
 
                 // Volver a la primera actividad
                 Intent intent = new Intent(SecondActivity2.this, MainActivity.class);
+                // Pasar un mensaje extra al primer Activity
+                intent.putExtra("mensaje", "¡Volvió a la primera pantalla!");
                 startActivity(intent);
             }
         });

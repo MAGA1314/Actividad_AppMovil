@@ -64,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Nombre Aleatorio:"
+        android:text="@string/nombrealeatorio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnvol" />
@@ -76,7 +76,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="text"
-        android:hint="Nombre Aleatorio"
+        android:hint="@string/nombrealeatorio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvnombrealeatorio" />
@@ -85,19 +85,20 @@
         android:id="@+id/btnrepetir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="@string/repetiraleatorio"
         app:layout_constraintBottom_toTopOf="@+id/btnvol"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etnombre3"
         app:layout_constraintVertical_bias="0.736" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="377dp" />
+    <TextView
+        android:id="@+id/TValeatorionuevo"
+        android:layout_width="65dp"
+        android:layout_height="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/etnombre1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
