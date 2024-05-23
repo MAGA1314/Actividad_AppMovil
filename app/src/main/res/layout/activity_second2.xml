@@ -6,58 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".SecondActivity2">
 
-    <EditText
-        android:id="@+id/etnombre1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etnombre2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etnombre1" />
 
-    <EditText
-        android:id="@+id/etnombre3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etnombre2" />
+    <!-- TextView para mostrar el nombre aleatorio seleccionado -->
 
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="351dp"
+        android:layout_height="437dp"
+        android:layout_marginBottom="276dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnvol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="20dp"
         android:drawableStart="@drawable/icono_volver"
         android:text="@string/volver"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etnombre3" />
+        app:layout_constraintTop_toBottomOf="@+id/btnrepetir" />
 
     <TextView
         android:id="@+id/tvnombrealeatorio"
@@ -67,7 +41,7 @@
         android:text="@string/nombrealeatorio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnvol" />
+        app:layout_constraintTop_toBottomOf="@+id/listView" />
 
     <EditText
         android:id="@+id/etnombrealeatorio"
@@ -81,22 +55,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvnombrealeatorio" />
 
+    <!-- Botón para repetir la selección aleatoria de un nombre -->
+
+    <!-- TextView para mostrar un mensaje de confirmación al seleccionar un nombre aleatorio -->
+
     <Button
         android:id="@+id/btnrepetir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="@string/repetiraleatorio"
-        app:layout_constraintBottom_toTopOf="@+id/btnvol"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etnombre3"
-        app:layout_constraintVertical_bias="0.736" />
+        app:layout_constraintTop_toBottomOf="@+id/etnombrealeatorio" />
 
     <TextView
         android:id="@+id/TValeatorionuevo"
         android:layout_width="65dp"
         android:layout_height="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/etnombre1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

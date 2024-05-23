@@ -5,85 +5,108 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
-    String Tag = "";
+    private ListView listView;
+    private ArrayAdapter<String> adapter;
+    private String tag = "";
+    Button Aleatorio;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Inicializar el ListView y el adaptador
+        listView = findViewById(R.id.listView);
+        Aleatorio =findViewById(R.id.btnAleatorio);
+
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        listView.setAdapter(adapter);
+
         // Recuperar el mensaje extra del Intent
         Intent intent = getIntent();
-        if (intent != null) {
+        if (intent!= null) {
             String mensaje = intent.getStringExtra("mensaje");
-
-            // Mostrar el mensaje en un TextView u otro componente según tu diseño
             TextView textView = findViewById(R.id.TVtexto);
             textView.setText(mensaje);
         }
-        Button btnEnviar = findViewById(R.id.btncontinuar);
-        btnEnviar.setOnClickListener(new View.OnClickListener() {
 
+        Button btnAgregar = findViewById(R.id.btnAgregar);
+        btnAgregar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Obtener datos de EditText
-                EditText editTextNombre1 = findViewById(R.id.etnombre1);
-                EditText editTextNombre2 = findViewById(R.id.etnombre2);
-                EditText editTextNombre3 = findViewById(R.id.etnombre3);
-
-                String nombre1 = editTextNombre1.getText().toString();
-                String nombre2 = editTextNombre2.getText().toString();
-                String nombre3 = editTextNombre3.getText().toString();
-
-                // Pasar datos a la segunda actividad
-                Intent intent = new Intent(MainActivity.this, SecondActivity2.class);
-                intent.putExtra("NOMBRE1", nombre1);
-                intent.putExtra("NOMBRE2", nombre2);
-                intent.putExtra("NOMBRE3", nombre3);
-
-                startActivity(intent);
+                EditText editText = findViewById(R.id.etnombre);
+                String texto = editText.getText().toString();
+                if (!texto.isEmpty()) {
+                    adapter.add(texto);
+                    editText.setText(""); // Limpiar el EditText después de agregar
+                } else {
+                    Toast.makeText(MainActivity.this, "Por favor ingrese algo.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+        Aleatorio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                enviarDatosALineaDos();
+            }
+        });
+    }
+
+    // Método para enviar los datos a la segunda actividad
+    public void enviarDatosALineaDos() {
+        ArrayList<String> listaNombres = new ArrayList<>();
+        for (int i = 0; i < adapter.getCount(); i++) {
+            listaNombres.add((String) adapter.getItem(i));
+        }
+        Intent intent = new Intent(MainActivity.this, SecondActivity2.class);
+        intent.putExtra("nombres", listaNombres.toArray(new String[0]));
+        startActivity(intent);
     }
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i(Tag,"Estoy en OnStart");
+        Log.i(tag, "Estoy en OnStart");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i(Tag,"Bienvenido de nuevo");
+        Log.i(tag, "Bienvenido de nuevo");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i(Tag,"Estoy en OnPause");
+        Log.i(tag, "Estoy en OnPause");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i(Tag,"Estoy en OnStop");
+        Log.i(tag, "Estoy en OnStop");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.i(Tag,"Estoy en OnRestart");
+        Log.i(tag, "Estoy en OnRestart");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i(Tag,"Estoy en OnDestroy");
+        Log.i(tag, "Estoy en OnDestroy");
     }
 }
