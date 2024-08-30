@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private ArrayAdapter<String> adapter;
     private String tag = "";
-    Button Aleatorio;
+    Button Aleatorio, Salir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         // Inicializar el ListView y el adaptador
         listView = findViewById(R.id.listView);
         Aleatorio =findViewById(R.id.btnAleatorio);
+        Salir = findViewById(R.id.btnSalir);
 
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         listView.setAdapter(adapter);
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Button btnAgregar = findViewById(R.id.btnAgregar);
+        Button btnSalir = findViewById(R.id.btnSalir); // Se ha agregado esta línea
+
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 EditText editText = findViewById(R.id.etnombre);
@@ -62,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
                 enviarDatosALineaDos();
             }
         });
+        Salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     // Método para enviar los datos a la segunda actividad
